@@ -8,25 +8,30 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    html, body {
+    html,
+    body {
       height: 100%;
       margin: 0;
       padding: 0;
     }
+
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
     main {
       flex: 1;
       overflow-y: auto;
     }
+
     .product-description {
       background-color: #f7fafc;
       padding: 1rem;
       border-radius: 0.375rem;
     }
+
     .ranking-badge {
       background-color: #4299e1;
       color: white;
@@ -37,8 +42,96 @@
       top: 1rem;
       left: 1rem;
     }
+
     .product-card {
       position: relative;
+      text-align: center;
+      cursor: pointer;
+      padding-bottom: 1rem;
+    }
+
+    .product-card p {
+      margin: 10px 0 0;
+    }
+
+    .product-price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .product-rating {
+      color: #ffcc00;
+    }
+
+    .product-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .product-buttons button {
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .product-buttons button:hover {
+      background-color: #2b6cb0;
+    }
+
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .chat-button:hover {
+      background-color: #2b6cb0;
+    }
+
+    .category-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      /* 패딩 값을 줄였습니다 */
+      background-color: #2d3748;
+      color: white;
+      border-radius: 0.375rem;
+      margin-top: 1rem;
+    }
+
+    .category-menu a {
+      text-decoration: none;
+      color: #4299e1;
+      font-weight: bold;
+      margin: 0.25rem 0;
+      font-size: 0.875rem;
+      /* 글씨 크기 조정 */
+    }
+
+    .category-menu a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 1rem 0;
+      /* 푸터의 패딩 값을 줄였습니다 */
     }
   </style>
 </head>
@@ -77,7 +170,7 @@
       </nav>
     </div>
   </header>
-  
+
   <main class="container mx-auto py-8">
     <section class="text-center">
       <h2 class="text-3xl font-bold pb-4">Wireless earbuds</h2>
@@ -100,36 +193,95 @@
         </ul>
       </div>
     </section>
-    <button onclick="itemlist()" class="bg-blue-500 text-white border-2 border-blue-500 p-2 mt-4 hover:bg-blue-700">+
-      제품 보러가기</button>
+    <button onclick="itemlist()" class="bg-blue-500 text-white border-2 border-blue-500 p-2 mt-4 hover:bg-blue-700">+ 제품
+      보러가기</button>
     <section class="mt-8">
       <h3 class="text-2xl font-bold pb-4">추천 상품</h3>
       <div class="flex flex-wrap -mx-2">
-        <div class="w-full sm:w-1/3 p-2 product-card">
+        <div class="w-full sm:w-1/3 p-2 product-card" onclick="productAlert()">
           <span class="ranking-badge">1위</span>
           <img src="btitz.jpg" alt="Earbuds Image 1" class="w-full rounded-md">
+          <p>브리츠 CQ123</p>
+          <div class="product-info">
+            <div class="product-price">₩ 100,000</div>
+            <div class="product-rating">
+              ★★★★☆
+            </div>
+            <div class="product-buttons">
+              <button onclick="addToCart(event)">장바구니 추가</button>
+              <button onclick="addToWishlist(event)">찜하기</button>
+            </div>
+          </div>
         </div>
-        <div class="w-full sm:w-1/3 p-2 product-card">
+        <div class="w-full sm:w-1/3 p-2 product-card" onclick="productAlert()">
           <span class="ranking-badge">2위</span>
           <img src="flo.jpg" alt="Earbuds Image 2" class="w-full rounded-md">
+          <p>아이리버 IR575</p>
+          <div class="product-info">
+            <div class="product-price">₩ 80,000</div>
+            <div class="product-rating">
+              ★★★☆☆
+            </div>
+            <div class="product-buttons">
+              <button onclick="addToCart(event)">장바구니 추가</button>
+              <button onclick="addToWishlist(event)">찜하기</button>
+            </div>
+          </div>
         </div>
-        <div class="w-full sm:w-1/3 p-2 product-card">
+        <div class="w-full sm:w-1/3 p-2 product-card" onclick="productAlert()">
           <span class="ranking-badge">3위</span>
           <img src="ro.jpg" alt="Earbuds Image 3" class="w-full rounded-md">
+          <p>마샬 MS421</p>
+          <div class="product-info">
+            <div class="product-price">₩ 60,000</div>
+            <div class="product-rating">
+              ★★★★☆
+            </div>
+            <div class="product-buttons">
+              <button onclick="addToCart(event)">장바구니 추가</button>
+              <button onclick="addToWishlist(event)">찜하기</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-white py-4">
+  <footer class="bg-gray-800 text-white py-2"> <!-- 패딩 값을 줄였습니다 -->
     <div class="container mx-auto text-center">
-      <p>2024 Digital Marketing Programming Report</p>
+      <div class="category-menu">
+        <a href="#">배송 조회</a>
+        <a href="#">고객센터</a>
+        <a href="#">마이 페이지</a>
+        <a href="#">자주 묻는 질문</a>
+        <a href="#">오시는 길</a>
+      </div>
+      <br>
+      <p>ⓒ2024 Digital Marketing Programming Report_U2023074</p>
     </div>
   </footer>
+
+  <button class="chat-button" onclick="chat()">
+    <i class="fas fa-comments"></i>
+  </button>
 
   <script>
     function itemlist() {
       alert("제품이 준비중입니다.");
+    }
+    function chat() {
+      alert("문의하기 기능이 준비중입니다.");
+    }
+    function productAlert() {
+      alert("제품이 준비중입니다.");
+    }
+    function addToCart(event) {
+      event.stopPropagation();
+      alert("장바구니에 추가되었습니다.");
+    }
+    function addToWishlist(event) {
+      event.stopPropagation();
+      alert("찜 목록에 추가되었습니다.");
     }
   </script>
 </body>
