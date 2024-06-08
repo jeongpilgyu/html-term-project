@@ -63,19 +63,25 @@
           <input
             class="shadow appearance-none border rounded w-full py-1 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="password" type="password" placeholder="비밀번호" style="max-width: 100px;">
-          <button
+          <button onclick="login()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
             type="button">
             로그인
+            <script>
+              function login() {
+                alert("가입 정보가 없습니다.");
+              }
+            </script>
           </button>
         </form>
       </nav>
     </div>
   </header>
+  
   <main class="container mx-auto py-8">
     <section class="text-center">
       <h2 class="text-3xl font-bold pb-4">Wireless earbuds</h2>
-      <p class="text-gray-600">경이로운 음질과 편안한 착용감을 제공하는 최신 무선 이어폰을 만나보세요. 어디서나 자유롭게 음악을 즐길 수 있습니다.</p>
+      <p class="text-gray-600">경이로운 음질과 편안한 착용감을 제공하는 최신 무선 이어폰을 다양하게 만나보세요. 어디서나 자유롭게 음악을 즐길 수 있습니다.</p>
     </section>
     <section class="flex flex-wrap justify-between mt-8">
       <div class="w-full md:w-1/2 p-4">
@@ -94,7 +100,7 @@
         </ul>
       </div>
     </section>
-    <button onclick="addToCart()" class="bg-blue-500 text-white border-2 border-blue-500 p-2 mt-4 hover:bg-blue-700">+
+    <button onclick="itemlist()" class="bg-blue-500 text-white border-2 border-blue-500 p-2 mt-4 hover:bg-blue-700">+
       제품 보러가기</button>
     <section class="mt-8">
       <h3 class="text-2xl font-bold pb-4">추천 상품</h3>
@@ -117,13 +123,13 @@
 
   <footer class="bg-gray-800 text-white py-4">
     <div class="container mx-auto text-center">
-      <p>copy 2024 Wireless Earbuds</p>
+      <p>2024 Digital Marketing Programming Report</p>
     </div>
   </footer>
 
   <script>
-    function addToCart() {
-      alert("준비 된 제품이 없습니다");
+    function itemlist() {
+      alert("제품이 준비중입니다.");
     }
   </script>
 </body>
